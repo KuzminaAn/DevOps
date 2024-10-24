@@ -2,8 +2,7 @@
 
 ## Задача 1
 
-1. Установка docker и docker compose на ВМ с Linux.
-Установка была выполнена по инструкции https://timeweb.cloud/tutorials/docker/kak-ustanovit-docker-na-ubuntu-22-04
+1. Установка docker и docker compose на ВМ с Linux была выполнена по инструкции https://timeweb.cloud/tutorials/docker/kak-ustanovit-docker-na-ubuntu-22-04
 ```
 sudo apt update
 sudo apt install curl software-properties-common ca-certificates apt-transport-https -y
@@ -20,7 +19,7 @@ sudo apt-get install docker-compose
 
 3. Зарегистровалась и создала публичный репозиторий с именем "custom-nginx" на https://hub.docker.com 
 
-4. Скачайте образ nginx:1.21.1
+4. Скачала образ nginx:1.21.1
 ```
 sudo docker pull nginx:1.21.1
 ```
@@ -48,16 +47,18 @@ https://hub.docker.com/repository/docker/annakuzmina/custom-nginx/general
 1. Запустила образ custom-nginx:1.0.0 командой docker run в соответвии с требованиями
 
 ![скриншот](screenshots/2.1.png)
+
 ![скриншот](screenshots/2.1.1.png)
 
-2. Не удаляя, переименуйте контейнер в "custom-nginx-t2"
+2. Не удаляя, переименовала контейнер в "custom-nginx-t2"
 
 ![скриншот](screenshots/2.2.png)
+
 ![скриншот](screenshots/2.2.1.png)
 
-3. Выполните команду date +"%d-%m-%Y %T.%N %Z" ; sleep 0.150 ; docker ps ; ss -tlpn | grep 127.0.0.1:8080  ; docker logs custom-nginx-t2 -n1 ; docker exec -it custom-nginx-t2 base64 /usr/share/nginx/html/index.html
+3. date +"%d-%m-%Y %T.%N %Z" ; sleep 0.150 ; docker ps ; ss -tlpn | grep 127.0.0.1:8080  ; docker logs custom-nginx-t2 -n1 ; docker exec -it custom-nginx-t2 base64 /usr/share/nginx/html/index.html
 
-4. Убедитесь с помощью curl или веб браузера, что индекс-страница доступна.
+4. Убедилась с помощью curl, что индекс-страница доступна.
 
 ![скриншот](screenshots/2.3-4.png)
 
@@ -65,7 +66,7 @@ https://hub.docker.com/repository/docker/annakuzmina/custom-nginx/general
 
 1. Подключение к стандартному потоку ввода/вывода/ошибок контейнера "custom-nginx-t2"
 2. Ctrl-C
-3. docker ps -a
+3. docker ps -a 
 Контейнер custom-nginx-t2 имеет статус "Exited". При нажатии Ctrl+C отправляется сигнал прирывания и из-за этого завершается процесс Nginx
 
 ![скриншот](screenshots/3.1-3.png)
@@ -79,7 +80,7 @@ https://hub.docker.com/repository/docker/annakuzmina/custom-nginx/general
 
 ![скриншот](screenshots/3.4-9.png)
 
-10. ss -tlpn | grep 127.0.0.1:8080 , docker port custom-nginx-t2, curl http://127.0.0.1:8080. Кратко объясните суть возникшей проблемы.
+10. ss -tlpn | grep 127.0.0.1:8080 , docker port custom-nginx-t2, curl http://127.0.0.1:8080. 
 Соединение было сброшено, поскольку запросы не обрабатываются (поменяли порт на 81 и ничего более не сделали)
 
 ![скриншот](screenshots/3.10.png)
@@ -96,7 +97,7 @@ https://hub.docker.com/repository/docker/annakuzmina/custom-nginx/general
 
 ## Задание 5
 
-1. Создала отдельную директорию(/tmp/netology/docker/task5) и 2 файла внутри него
+1. Создала отдельную директорию /tmp/netology/docker/task5 и 2 файла внутри него
 
 ![скриншот](screenshots/5.1.png)
 
@@ -105,6 +106,7 @@ https://hub.docker.com/repository/docker/annakuzmina/custom-nginx/general
 2. Отредактировала файл compose.yaml так, чтобы были запущенны оба файла
 
 ![скриншот](screenshots/5.2.png)
+
 ![скриншот](screenshots/5.2.1.png)
 
 3. Залила образ custom-nginx как custom-nginx:latest в локальное registry
@@ -117,8 +119,7 @@ https://hub.docker.com/repository/docker/annakuzmina/custom-nginx/general
 
 ![скриншот](screenshots/5.4.png)
 
-5. Откройте страницу "http://127.0.0.1:9000/#!/home", выберите ваше local окружение. Перейдите на вкладку "stacks" и в "web editor" задеплойте следующий компоуз:
-
+5. 
 ![скриншот](screenshots/5.5.png)
 ![скриншот](screenshots/5.5.1.png)
 
@@ -126,7 +127,7 @@ https://hub.docker.com/repository/docker/annakuzmina/custom-nginx/general
 
 ![скриншот](screenshots/5.6.png)
 
-7. Удалила compose.yaml, сделала "docker compose up -d", учла предупреждения и потом ысе удалила
+7. Удалила compose.yaml, сделала "docker compose up -d", учла предупреждения и потом все удалила
 
 ![скриншот](screenshots/5.7.png)
 ![скриншот](screenshots/5.7.1.png)
