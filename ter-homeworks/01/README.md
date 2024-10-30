@@ -133,7 +133,7 @@ docker context create my-remote-context --docker "host=ssh://admin@89.169.170.21
 my-remote-context
 Successfully created context "my-remote-context"
 ```
-4. Создала [новый файл](src/main-2.tf)
+4. Создала новый файл [main-2.tf](src/main-2.tf)
 5. На удаленной ВМ все появилось 
 ![скриншот](screenshots/2.5.png)
 
