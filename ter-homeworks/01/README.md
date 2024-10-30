@@ -38,8 +38,9 @@ commands will detect it and remind you to do so if necessary.
       ]
 ```
 
-4. Раскомментировала строки
+4. Раскомментировала строки 
 terraform validate
+
 ```
 │ Error: Invalid resource name
 │ 
@@ -72,7 +73,7 @@ terraform validate
 resource "docker_image" "nginx"
 ```
 
-Также внесла исправление в resource "docker_container" "nginx":
+Также внесла исправления в resource "docker_container" "nginx":
 ```
 name  = "example_${random_password.random_string.result}"
 ```
@@ -83,7 +84,7 @@ terraform validate
 Success! The configuration is valid.
 ```
 
-5. [Исправленный код](src/main.tf)
+5. Исправленный код [main.tf](src/main.tf)
 
 docker ps
 ![скриншот](screenshots/5.png)
@@ -94,7 +95,7 @@ docker ps
 docker ps
 ![скриншот](screenshots/6.png)
 
-7. terraform destroy
+7. Содержимое файла terraform.tfstate после terraform destroy
 ```
 {
   "version": 4,
@@ -108,6 +109,7 @@ docker ps
 ```
 
 8. docker-образ не был удален, потому что в коде указано:
+
 ```
 resource "docker_image" "nginx" {
   name         = "nginx:latest"
@@ -116,6 +118,7 @@ resource "docker_image" "nginx" {
 ```
 keep_locally = true - образ не будет удален 
 Документация: https://docs.comcloud.xyz/providers/kreuzwerker/docker/latest/docs/resources/image
+
 ``
 keep_locally (Boolean) If true, then the Docker image won't be deleted on destroy operation. If this is false, it will delete the image from the docker local storage on destroy operation.
 ``
@@ -133,3 +136,11 @@ Successfully created context "my-remote-context"
 4. Создала [новый файл](src/main-2.tf)
 5. На удаленной ВМ все появилось 
 ![скриншот](screenshots/2.5.png)
+
+## Задание 3*
+1. OpenTofu установила
+```
+tofu --version
+OpenTofu v1.8.4
+```
+2. С провайдерами не подружилась
