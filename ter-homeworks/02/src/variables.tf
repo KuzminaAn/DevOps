@@ -85,9 +85,9 @@ variable "env_db" {
 # Задание 8*
 
 variable "test" {
-  description = "Список серверов с SSH-доступом и IP-адресами"
+  description = "Список ВМ с SSH-доступом и IP-адресами"
   type = list(object({
-    dev1 = optional(list(string))  # Делаем ключи необязательными
+    dev1 = optional(list(string))  # Делаем ключи необязательными? Иначе не работает
     dev2 = optional(list(string))
     prod1 = optional(list(string))
   }))
