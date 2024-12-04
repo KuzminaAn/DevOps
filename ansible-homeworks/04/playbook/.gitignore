@@ -1,0 +1,5 @@
+files/*
+/group_vars/clickhouse/var_host.yml
+/group_vars/vector/var_host.yml
+/group_vars/lighthouse/var_host.yml
+*/.DS_Store

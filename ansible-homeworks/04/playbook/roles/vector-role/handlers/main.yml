@@ -1,0 +1,11 @@
+---
+- name: Start Vector service
+  become: true
+  ansible.builtin.service:
+    name: vector
+    state: started
+- name: Restart Vector service
+  become: true
+  ansible.builtin.service:
+    name: vector
+    state: restarted

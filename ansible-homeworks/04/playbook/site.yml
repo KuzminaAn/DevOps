@@ -1,0 +1,24 @@
+---
+- name: Install Clickhouse
+  hosts: clickhouse
+  roles:
+    - role: clickhouse
+      tags: clickhouse
+
+- name: Install Vector
+  hosts: vector
+  roles:
+    - role: vector-role
+      tags: vector
+
+- name: Install Lighthouse
+  hosts: lighthouse-01
+  pre_tasks:
+    - name: Lighthouse | Install git
+      become: true
+      ansible.builtin.apt:
+        name: git
+        state: present
+  roles:
+    - role: lighthouse-role
+      tags: lighthouse
