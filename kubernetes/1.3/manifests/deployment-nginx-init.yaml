@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-init
+  namespace: test-2
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx-init
+  template:
+    metadata:
+      labels:
+        app: nginx-init
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:latest
+        ports:
+        - containerPort: 80
+      initContainers:
+      - name: init-myservice
+        image: busybox
+        command: ['sh', '-c', 'until nslookup nginx-init-svc.test-2.svc.cluster.local; do echo waiting for myservice; sleep 2; done;']
