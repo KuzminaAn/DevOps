@@ -1,0 +1,28 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-apps
+  namespace: app
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: anna-test-ingress.ru
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: svc-frontend
+                port:
+                  number: 9001
+          - path: /api
+            pathType: Prefix
+            backend:
+              service:
+                name: svc-backend
+                port:
+                  number: 9002
