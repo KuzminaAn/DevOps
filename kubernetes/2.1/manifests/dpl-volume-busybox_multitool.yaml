@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pod-emptydir
+  namespace: volume
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pod-emptydir
+  template:
+    metadata:
+      labels:
+        app: pod-emptydir
+    spec:
+      containers:
+        - name: busybox
+          image: busybox
+          command: ["sh", "-c", "while true; do echo 'Current time: ' $(date) >> /shared/data.txt; sleep 5; done"]
+          volumeMounts:
+            - mountPath: "/shared"
+              name: my-shared-volume
+        - name: multitool
+          image: wbitt/network-multitool
+          command: ["sh", "-c", "tail -f /shared/data.txt"]
+          env:
+          - name: HTTP_PORT
+            value: "8080"
+          ports:
+          - containerPort: 8080
+          volumeMounts:
+            - mountPath: "/shared"
+              name: my-shared-volume
+      volumes:
+        - name: my-shared-volume
+          emptyDir: {}

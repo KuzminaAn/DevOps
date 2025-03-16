@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: log-reader
+spec:
+  selector:
+    matchLabels:
+      app: log-reader
+  template:
+    metadata:
+      labels:
+        app: log-reader
+    spec:
+      containers:
+      - name: multitool
+        image: wbitt/network-multitool
+        command: ["sh", "-c", "tail -f /var/log/syslog"]
+        volumeMounts:
+        - name: syslog-volume
+          mountPath: /var/log/syslog
+      volumes:
+      - name: syslog-volume
+        hostPath:
+          path: /var/log/syslog
+          type: File
