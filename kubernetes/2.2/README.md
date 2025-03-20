@@ -28,13 +28,11 @@ PV описывает доступ к хранилищу, но само хран
 
 ## Задание 2
 
-1. Включила NFS-сервер на MicroK8S
+1. Включила и настроила NFS-сервер на MicroK8S по инструкции https://microk8s.io/docs/how-to-nfs
 
-![скриншот](./screenshots/2.1.1.png)
+![скриншот](./screenshots/2.1.png)
 
-![скриншот](./screenshots/2.1.2.png)
-
-2. Создала [Deployment](./manifests/dpl-multitool-nfs.yaml) приложения состоящего из multitool, и [подключила к нему PV](./manifests/nfs-pvc.yaml), созданный автоматически на сервере NFS
+2. Создала [StorageClass](./manifests/nfs-storage-class.yaml), [Deployment](./manifests/dpl-multitool-nfs.yaml) приложения состоящего из multitool, и [подключила к нему PV](./manifests/nfs-pvc.yaml), созданный автоматически на сервере NFS
 
 ![скриншот](./screenshots/2.2.png)
 
