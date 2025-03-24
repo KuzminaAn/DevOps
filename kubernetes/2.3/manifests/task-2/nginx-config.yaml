@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nginx-config
+  namespace: lesson23
+data:
+  default.conf: |
+    server {
+        listen 80;
+        listen 443 ssl;
+        server_name my-secure-app.ru;
+
+        ssl_certificate /etc/nginx/ssl/tls.crt;
+        ssl_certificate_key /etc/nginx/ssl/tls.key;
+
+        location / {
+            root /usr/share/nginx/html;
+            index index.html;
+        }
+    }

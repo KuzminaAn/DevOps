@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: multitool-config
+  namespace: lesson23
+data:
+  key1: "1180" 
