@@ -1,0 +1,8 @@
+namespace: app2
+replicaCount: 1
+nginx:
+  image:
+    tag: latest
+multitool:
+  image:
+    tag: alpine-minimal

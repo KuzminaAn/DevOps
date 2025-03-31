@@ -1,0 +1,7 @@
+namespace: app1
+nginx:
+  image:
+    tag: "1.25.0"
+multitool:
+  image:
+    tag: alpine-extra

@@ -1,0 +1,7 @@
+namespace: app1
+nginx:
+  image:
+    tag: stable
+multitool:
+  image:
+    tag: latest

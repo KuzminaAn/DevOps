@@ -1,0 +1,23 @@
+namespace: helm
+replicaCount: 2
+
+nginx:
+  image:
+    repository: nginx
+    tag: stable
+    pullPolicy: IfNotPresent
+  port: 80
+  service:
+    type: ClusterIP
+    port: 80
+
+multitool:
+  image:
+    repository: wbitt/network-multitool
+    tag: latest
+    pullPolicy: Always
+  port: 8080
+  httpPort: "8080"
+  service:
+    type: ClusterIP
+    port: 8080

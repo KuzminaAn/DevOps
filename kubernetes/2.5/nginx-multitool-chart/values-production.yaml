@@ -1,0 +1,7 @@
+replicaCount: 2
+nginx:
+  image:
+    tag: "1.26.0"
+multitool:
+  image:
+    tag: alpine-minimal
